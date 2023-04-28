@@ -11,12 +11,16 @@ function Main(props) {
       <Route
         path="/"
         element={[
-          <Banner auth={props.auth} toggleSearch={props.toggleSearch} />,
-          <BlockTitle title="Почему именно мы" />,
-          <MultyCarousel />,
-          <BannerTwo />,
-          <BlockTitle title="Наши тарифы" />,
-          <FeeContainer />,
+          <Banner
+            key={0}
+            auth={props.auth}
+            toggleSearch={props.toggleSearch}
+          />,
+          <BlockTitle key={1} title="Почему именно мы" />,
+          <MultyCarousel key={2} />,
+          <BannerTwo key={3} />,
+          <BlockTitle key={4} title="Наши тарифы" />,
+          <FeeContainer key={5} />,
         ]}
       />
       <Route
