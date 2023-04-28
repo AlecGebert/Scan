@@ -122,6 +122,7 @@ const LogInFormInput = styled.input`
   box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.05);
   border-radius: 0.5rem;
   margin: 2rem 0;
+  padding: 0 1rem;
 `;
 
 const LogInFormButtons = styled.div`
@@ -144,8 +145,10 @@ const LogInFormBtn = styled.button`
   letter-spacing: 0.02em;
   color: #ffffff;
   padding: 1.6rem 0;
-  opacity: 0.6;
   cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
 
 const LogInFormBtnHelp = styled.button`
@@ -286,8 +289,8 @@ function AuthForm({ setToken }) {
         <img src={lock} style={forImage} alt="" />
       </LockImageContainer>
       <Toggles>
-        <SignInToggle>Войти</SignInToggle>
-        <LogInToggle>Зарегистрироваться</LogInToggle>
+        <SignInToggle type="button">Войти</SignInToggle>
+        <LogInToggle type="button">Зарегистрироваться</LogInToggle>
       </Toggles>
       <Inputs>
         <LogInFormLabel htmlFor="login">
@@ -314,22 +317,25 @@ function AuthForm({ setToken }) {
         )}
       </Inputs>
       <LogInFormButtons>
-        <LogInFormBtn disabled={!formValid} type="submit">
-          Войти
-        </LogInFormBtn>
-
-        <LogInFormBtnHelp>Восстановить пароль</LogInFormBtnHelp>
+        {!formValid ? (
+          <LogInFormBtn disabled type="button">
+            Войти
+          </LogInFormBtn>
+        ) : (
+          <LogInFormBtn type="submit">Войти</LogInFormBtn>
+        )}
+        <LogInFormBtnHelp type="button">Восстановить пароль</LogInFormBtnHelp>
       </LogInFormButtons>
       <LogInThrogh>
         <LogInFormLabel htmlFor="">Войти через:</LogInFormLabel>
         <LogInThroghButtons>
-          <SocialBtn>
+          <SocialBtn type="button">
             <img src={facebookLogo} alt="" />
           </SocialBtn>
-          <SocialBtn>
+          <SocialBtn type="button">
             <img src={googleLogo} alt="" />
           </SocialBtn>
-          <SocialBtn>
+          <SocialBtn type="button">
             <img src={yandexLogo} alt="" />
           </SocialBtn>
         </LogInThroghButtons>

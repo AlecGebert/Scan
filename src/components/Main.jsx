@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Banner from "../components/Banner";
 import BannerTwo from "../components/BannerTwo";
@@ -8,23 +7,27 @@ import MultyCarousel from "../components/MultyCarousel";
 
 function Main(props) {
   return (
-    <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Banner auth={props.auth} toggleSearch={props.toggleSearch} />
-          }
-        />
-        <Route path="/fee" element={<FeeContainer />} />
-        <Route path="/faq" element={<MultyCarousel />} />
-      </Routes>
-      <BlockTitle title="Почему именно мы" />
-      <MultyCarousel />
-      <BannerTwo />
-      <BlockTitle title="Наши тарифы" />
-      <FeeContainer />
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={[
+          <Banner auth={props.auth} toggleSearch={props.toggleSearch} />,
+          <BlockTitle title="Почему именно мы" />,
+          <MultyCarousel />,
+          <BannerTwo />,
+          <BlockTitle title="Наши тарифы" />,
+          <FeeContainer />,
+        ]}
+      />
+      <Route
+        path="/faq"
+        element={[<BlockTitle title="Почему именно мы" />, <MultyCarousel />]}
+      />
+      <Route
+        path="/fee"
+        element={[<BlockTitle title="Наши тарифы" />, <FeeContainer />]}
+      />
+    </Routes>
   );
 }
 

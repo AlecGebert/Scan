@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import check from "../assets/check.jpg";
+import arow from "../assets/arow.svg";
+import lamp from "../assets/lamp.svg";
+import nout from "../assets/nout.svg";
 
 const Container = styled.div`
   width: 91%;
@@ -94,7 +97,7 @@ function FeeContainer() {
   const cards = [
     {
       id: 1,
-      src: "/feeIcons/lamp.svg",
+      src: lamp,
       title: "Beginner",
       subtitle: "Для небольшого исследования",
       price: "799 ₽",
@@ -168,7 +171,7 @@ function FeeContainer() {
     },
     {
       id: 2,
-      src: "/feeIcons/arow.svg",
+      src: arow,
       title: "Pro",
       subtitle: "Для HR и фрилансеров",
       price: "1 299 ₽",
@@ -243,7 +246,7 @@ function FeeContainer() {
     },
     {
       id: 3,
-      src: "/feeIcons/nout.svg",
+      src: nout,
       title: "Business",
       subtitle: "Для корпоративных клиентов",
       price: "2 379 ₽",
